@@ -1,0 +1,19 @@
+a {
+  color: red($color: #000000);
+  font-size: 15px;
+  &:hover{
+    background: #000;
+    height: 50px;
+    display: block;
+  }
+}
+.modal-window {
+  width: 250px;
+  height: 250px;
+  background-color: red($color: #000000);
+  .modal-overlay{
+    width: 100px;
+    height: 100px;
+    background: #000;
+  }
+}

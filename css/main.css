@@ -1,0 +1,18 @@
+a {
+  color: 0;
+  font-size: 15px; }
+  a:hover {
+    background: #000;
+    height: 50px;
+    display: block; }
+
+.modal-window {
+  width: 250px;
+  height: 250px;
+  background-color: red; }
+  .modal-window .modal-overlay {
+    width: 100px;
+    height: 100px;
+    background: #000; }
+
+/*# sourceMappingURL=main.css.map */
