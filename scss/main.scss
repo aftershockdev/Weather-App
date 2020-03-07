@@ -1,19 +1,118 @@
-a {
-  color: red($color: #000000);
-  font-size: 15px;
-  &:hover{
-    background: #000;
-    height: 50px;
-    display: block;
+$main-color: #C5CFD5;
+$font: 'Raleway', sans-serif;
+$text-color: #16173C;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a, li, ul, ol{
+  text-decoration: none;
+  list-style-type: none;
+}
+
+
+/*=============================================
+=     Navigation block            =
+=============================================*/
+nav {
+  display: flex;
+  height: 5rem;
+  background: $main-color;
+   .nav-wrapper {
+        width: 80%;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        .nav-bar{
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+        }
+     i{
+       font-size: 28px;
+       color: $text-color;
+     }
+     .nav-item {
+       font-family: $font;
+       text-transform: uppercase;
+       display: flex;
+       flex-direction: column;
+       transition: font-size .2s ease-in-out;
+       &:hover{
+         font-size: 18px;
+       }
+       a{
+        color: $text-color;
+        font-weight: 400;
+        &:hover{
+          color: #121345;
+          font-weight: 700;
+
+        }
+       }
+  
+     }
+   }
+}
+
+
+/*=====  End Of Navigation block  ======*/
+
+
+
+/*=============================================
+=     Main Block            =
+=============================================*/
+
+.container{
+  width: 1170px;
+  margin: 0 auto;
+}
+.search-layout{ 
+  height: 100vh;
+  background: #e3e2e2;
+
+  .search-items {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    p{
+      font-family: $font;
+      font-weight: 700px;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .search-subitem {
+      width: 240px;
+      height: 30px;
+      border-radius: 15px;
+      color: $text-color;
+      border: 1.55px solid $main-color;
+      padding-left: 15px;
+    }
+    .search-button {
+      padding: 6px;          
+      background:  #fff;
+      border: 1.5px solid $main-color;
+      border-radius: 15px;
+      font-family: $font;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border .2s ease-in;
+      transition: border-radius .2s ease-in;
+      &:hover{
+        border: 1.5px solid black;
+        border-radius: 0px;
+
+
+      }
+     }
   }
 }
-.modal-window {
-  width: 250px;
-  height: 250px;
-  background-color: red($color: #000000);
-  .modal-overlay{
-    width: 100px;
-    height: 100px;
-    background: #000;
-  }
-}
+
+
+/*===== End of  Main Block  ======*/
+

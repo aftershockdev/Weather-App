@@ -1,18 +1,88 @@
-a {
-  color: 0;
-  font-size: 15px; }
-  a:hover {
-    background: #000;
-    height: 50px;
-    display: block; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
-.modal-window {
-  width: 250px;
-  height: 250px;
-  background-color: red; }
-  .modal-window .modal-overlay {
-    width: 100px;
-    height: 100px;
-    background: #000; }
+a, li, ul, ol {
+  text-decoration: none;
+  list-style-type: none; }
+
+/*=============================================
+=     Navigation block            =
+=============================================*/
+nav {
+  display: flex;
+  height: 5rem;
+  background: #C5CFD5; }
+  nav .nav-wrapper {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    align-items: center; }
+    nav .nav-wrapper .nav-bar {
+      display: flex;
+      width: 100%;
+      justify-content: space-between; }
+    nav .nav-wrapper i {
+      font-size: 28px;
+      color: #16173C; }
+    nav .nav-wrapper .nav-item {
+      font-family: "Raleway", sans-serif;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      transition: font-size .2s ease-in-out; }
+      nav .nav-wrapper .nav-item:hover {
+        font-size: 18px; }
+      nav .nav-wrapper .nav-item a {
+        color: #16173C;
+        font-weight: 400; }
+        nav .nav-wrapper .nav-item a:hover {
+          color: #121345;
+          font-weight: 700; }
+
+/*=====  End Of Navigation block  ======*/
+/*=============================================
+=     Main Block            =
+=============================================*/
+.container {
+  width: 1170px;
+  margin: 0 auto; }
+
+.search-layout {
+  height: 100vh;
+  background: #e3e2e2; }
+  .search-layout .search-items {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+    .search-layout .search-items p {
+      font-family: "Raleway", sans-serif;
+      font-weight: 700px;
+      font-size: 18px;
+      margin-bottom: 10px; }
+    .search-layout .search-items .search-subitem {
+      width: 240px;
+      height: 30px;
+      border-radius: 15px;
+      color: #16173C;
+      border: 1.55px solid #C5CFD5;
+      padding-left: 15px; }
+    .search-layout .search-items .search-button {
+      padding: 6px;
+      background: #fff;
+      border: 1.5px solid #C5CFD5;
+      border-radius: 15px;
+      font-family: "Raleway", sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border .2s ease-in;
+      transition: border-radius .2s ease-in; }
+      .search-layout .search-items .search-button:hover {
+        border: 1.5px solid black;
+        border-radius: 0px; }
+
+/*===== End of  Main Block  ======*/
 
 /*# sourceMappingURL=main.css.map */
