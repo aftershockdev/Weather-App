@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif; }
 
 a, li, ul, ol {
   text-decoration: none;
@@ -10,36 +11,82 @@ a, li, ul, ol {
 /*=============================================
 =     Navigation block            =
 =============================================*/
-nav {
+body {
+  background: #86bcf3;
+  background: linear-gradient(180deg, #86bcf3 1%, #107bf1 100%);
+  height: 100vh; }
+
+nav .nav-wrapper {
+  background: inherit;
+  height: 60px;
   display: flex;
-  height: 5rem;
-  background: #C5CFD5; }
-  nav .nav-wrapper {
-    width: 80%;
+  align-items: center; }
+
+nav .search-sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+nav .nav-block {
+  display: flex;
+  justify-content: space-between; }
+  nav .nav-block a {
+    color: #16173C;
+    font-size: 20px;
+    transition: border .15s ease-out;
+    border-bottom: 3px solid #16173C;
+    border-top: 3px solid #16173C; }
+    nav .nav-block a:hover {
+      text-decoration: none;
+      border-bottom: 0px solid #16173C;
+      border-top: 0px solid #16173C; }
+
+nav .search-subitem {
+  width: 240px;
+  height: 35px;
+  border-radius: 15px;
+  color: #16173C;
+  border: 1.55px solid #C5CFD5;
+  padding-left: 15px; }
+
+nav .search-button {
+  padding: 4px;
+  background: #fff;
+  border: 1.5px solid #C5CFD5;
+  border-radius: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border .2s ease-in;
+  transition: border-radius .2s ease-in; }
+  nav .search-button:hover {
+    border: 1.5px solid black;
+    background: black;
+    color: #fff;
+    border-radius: 0px; }
+
+.search-items {
+  display: flex;
+  align-items: center; }
+
+.search-name {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding-right: 5px; }
+
+.search-layout {
+  background: inherit;
+  display: flex;
+  justify-content: center; }
+  .search-layout .search-wrap {
     display: flex;
-    margin: 0 auto;
-    align-items: center; }
-    nav .nav-wrapper .nav-bar {
-      display: flex;
-      width: 100%;
-      justify-content: space-between; }
-    nav .nav-wrapper i {
-      font-size: 28px;
-      color: #16173C; }
-    nav .nav-wrapper .nav-item {
-      font-family: "Raleway", sans-serif;
-      text-transform: uppercase;
-      display: flex;
-      flex-direction: column;
-      transition: font-size .2s ease-in-out; }
-      nav .nav-wrapper .nav-item:hover {
-        font-size: 18px; }
-      nav .nav-wrapper .nav-item a {
-        color: #16173C;
-        font-weight: 400; }
-        nav .nav-wrapper .nav-item a:hover {
-          color: #121345;
-          font-weight: 700; }
+    justify-content: space-between; }
+  .search-layout p {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700px;
+    font-size: 18px;
+    margin-bottom: 10px; }
 
 /*=====  End Of Navigation block  ======*/
 /*=============================================
@@ -49,40 +96,104 @@ nav {
   width: 1170px;
   margin: 0 auto; }
 
-.search-layout {
-  height: 100vh;
-  background: #e3e2e2; }
-  .search-layout .search-items {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    flex-direction: column; }
-    .search-layout .search-items p {
-      font-family: "Raleway", sans-serif;
-      font-weight: 700px;
-      font-size: 18px;
-      margin-bottom: 10px; }
-    .search-layout .search-items .search-subitem {
-      width: 240px;
-      height: 30px;
-      border-radius: 15px;
-      color: #16173C;
-      border: 1.55px solid #C5CFD5;
-      padding-left: 15px; }
-    .search-layout .search-items .search-button {
-      padding: 6px;
-      background: #fff;
-      border: 1.5px solid #C5CFD5;
-      border-radius: 15px;
-      font-family: "Raleway", sans-serif;
-      font-weight: 600;
-      cursor: pointer;
-      transition: border .2s ease-in;
-      transition: border-radius .2s ease-in; }
-      .search-layout .search-items .search-button:hover {
-        border: 1.5px solid black;
-        border-radius: 0px; }
-
 /*===== End of  Main Block  ======*/
+/*=============================================
+=            APP CARD BLOCK            =
+=============================================*/
+.search-cards {
+  margin: 20px;
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .search-cards .card-error {
+    padding: 15px;
+    margin: 10px;
+    width: 250px;
+    height: 365px;
+    border-radius: 15px;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center; }
+    .search-cards .card-error .card-header {
+      background: inherit;
+      border: 0px; }
+    .search-cards .card-error .card-footer {
+      padding: 10px;
+      border: 0px;
+      display: flex;
+      background: inherit; }
+      .search-cards .card-error .card-footer .card-fauvorite, .search-cards .card-error .card-footer .card-remove {
+        padding: 4px;
+        width: 70px;
+        margin: 5px;
+        background: inherit;
+        border: 1.5px solid rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition: border .2s ease-in;
+        transition: border-radius .2s ease-in; }
+        .search-cards .card-error .card-footer .card-fauvorite:hover, .search-cards .card-error .card-footer .card-remove:hover {
+          border: 1.5px solid black;
+          background: black;
+          color: #fff;
+          border-radius: 0px; }
+  .search-cards .app-card {
+    padding: 15px;
+    margin: 10px;
+    width: 250px;
+    height: 365px;
+    border-radius: 15px;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; }
+    .search-cards .app-card .card-header {
+      display: flex;
+      opacity: 100%;
+      margin-top: 20px;
+      flex-direction: column;
+      background: inherit;
+      border: 0; }
+      .search-cards .app-card .card-header img {
+        width: 100px;
+        height: 100px;
+        border: 0px;
+        background-color: inherit; }
+    .search-cards .app-card .card-main {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      text-align: center; }
+      .search-cards .app-card .card-main i {
+        font-size: 18px; }
+    .search-cards .app-card .card-footer {
+      padding: 10px;
+      border: 0px;
+      display: flex;
+      background: inherit; }
+      .search-cards .app-card .card-footer .card-fauvorite, .search-cards .app-card .card-footer .card-remove {
+        padding: 4px;
+        width: 70px;
+        margin: 5px;
+        background: inherit;
+        border: 1.5px solid rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition: border .2s ease-in;
+        transition: border-radius .2s ease-in; }
+        .search-cards .app-card .card-footer .card-fauvorite:hover, .search-cards .app-card .card-footer .card-remove:hover {
+          border: 1.5px solid black;
+          background: black;
+          color: #fff;
+          border-radius: 0px; }
 
 /*# sourceMappingURL=main.css.map */
