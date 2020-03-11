@@ -6,16 +6,22 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
   <link rel="stylesheet" href="css/main.css">
-  <title>Document</title>
+  <title>Best weather app</title>
 </head>
 <body>
+
+  <div class="background-container">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds-bg"></div>
+    </div>
   <nav>
     <div class="nav-wrapper">
       <div class="container">
         <div class="nav-block">
-      <a href="https://github.com/aftershockdev/Weather-App" target="_blank" class="brand-logo right">Weather app by aftershock666</a>
+      <a href="https://github.com/aftershockdev/Weather-App" target="_blank" class="brand-logo right">Weather app</a>
       <div class="search-items">
         <span class="search-name">City:</span>
         <div class="search-sub">
@@ -28,24 +34,64 @@
     </div>
   </nav>
 
+  <div class="vmodal">
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"
+        >
+          <span class='wind'>
+            Скорость ветра:&nbsp;<p class='modal-wind'></p>&nbsp;км/c
+          </span>
+          <span class="deg">
+            Направление ветра:&nbsp;<p class='modal-deg'></p>&nbsp;&deg;
+          </span>
 
+          <span class='modal-sun'>
+            Время рассвета:&nbsp;<p class='modal-sunrise'></p>
+          </span>
+          <span class="modal-set">
+            Время заката:&nbsp;<p class='modal-sunset'></p>
+          </span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="modal-btn" data-dismiss="modal">Close</button>
+          <button type="button" class="modal-btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
+  
   <main>
+
     <div class="search-layout">
       <div class="container">
          <div class="search-wrap">
            <div class="search-items">
         <div class="search-cards">
-    
-      </div>
+              
+        </div>
+        
     </div>
     </div>
     </div>
   </div>
   </main>
   
- 
-
+ <footer>
+   <p class='footer-text'>Made with love by <a href="https://github.com/aftershockdev" target='_blank'>Ruslan Zherebytskyi</a></p>
+ </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src='js/app.js'></script>
 </body>
 </html>
