@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif; }
+  font-family: "Raleway", sans-serif;
+  color: #ccc; }
 
 a, li, ul, ol {
   text-decoration: none;
@@ -11,11 +12,6 @@ a, li, ul, ol {
 /*=============================================
 =     Navigation block            =
 =============================================*/
-body {
-  background: #86bcf3;
-  background: linear-gradient(180deg, #86bcf3 1%, #107bf1 100%);
-  height: 100vh; }
-
 nav .nav-wrapper {
   background: inherit;
   height: 60px;
@@ -31,28 +27,27 @@ nav .nav-block {
   display: flex;
   justify-content: space-between; }
   nav .nav-block a {
-    color: #16173C;
-    font-size: 20px;
+    color: #ccc;
     transition: border .15s ease-out;
-    border-bottom: 3px solid #16173C;
-    border-top: 3px solid #16173C; }
+    color: #ccc;
+    font-size: 24px; }
     nav .nav-block a:hover {
-      text-decoration: none;
-      border-bottom: 0px solid #16173C;
-      border-top: 0px solid #16173C; }
+      text-decoration: none; }
 
 nav .search-subitem {
   width: 240px;
   height: 35px;
   border-radius: 15px;
-  color: #16173C;
-  border: 1.55px solid #C5CFD5;
+  background: inherit;
+  color: #fff;
+  border: 2px solid #C5CFD5;
   padding-left: 15px; }
 
 nav .search-button {
   padding: 4px;
-  background: #fff;
-  border: 1.5px solid #C5CFD5;
+  border: 1.5px solid #fff;
+  background: inherit;
+  margin-left: 5px;
   border-radius: 20px;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
@@ -126,7 +121,7 @@ nav .search-button {
       border: 0px;
       display: flex;
       background: inherit; }
-      .search-cards .card-error .card-footer .card-fauvorite, .search-cards .card-error .card-footer .card-remove {
+      .search-cards .card-error .card-footer .card-fauvorite, .search-cards .card-error .card-footer .card-info {
         padding: 4px;
         width: 70px;
         margin: 5px;
@@ -138,7 +133,7 @@ nav .search-button {
         cursor: pointer;
         transition: border .2s ease-in;
         transition: border-radius .2s ease-in; }
-        .search-cards .card-error .card-footer .card-fauvorite:hover, .search-cards .card-error .card-footer .card-remove:hover {
+        .search-cards .card-error .card-footer .card-fauvorite:hover, .search-cards .card-error .card-footer .card-info:hover {
           border: 1.5px solid black;
           background: black;
           color: #fff;
@@ -149,7 +144,7 @@ nav .search-button {
     width: 250px;
     height: 365px;
     border-radius: 15px;
-    border: 5px solid rgba(0, 0, 0, 0.5);
+    border: 5px solid #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -157,7 +152,6 @@ nav .search-button {
     .search-cards .app-card .card-header {
       display: flex;
       opacity: 100%;
-      margin-top: 20px;
       flex-direction: column;
       background: inherit;
       border: 0; }
@@ -171,6 +165,8 @@ nav .search-button {
       display: flex;
       flex-direction: column;
       text-align: center; }
+      .search-cards .app-card .card-main span {
+        color: #fff; }
       .search-cards .app-card .card-main i {
         font-size: 18px; }
     .search-cards .app-card .card-footer {
@@ -178,22 +174,161 @@ nav .search-button {
       border: 0px;
       display: flex;
       background: inherit; }
-      .search-cards .app-card .card-footer .card-fauvorite, .search-cards .app-card .card-footer .card-remove {
+      .search-cards .app-card .card-footer .card-fauvorite, .search-cards .app-card .card-footer .card-info {
         padding: 4px;
         width: 70px;
         margin: 5px;
         background: inherit;
-        border: 1.5px solid rgba(0, 0, 0, 0.5);
+        border: 1.5px solid #fff;
+        color: #fff;
         border-radius: 20px;
         font-family: "Raleway", sans-serif;
         font-weight: 600;
         cursor: pointer;
         transition: border .2s ease-in;
         transition: border-radius .2s ease-in; }
-        .search-cards .app-card .card-footer .card-fauvorite:hover, .search-cards .app-card .card-footer .card-remove:hover {
+        .search-cards .app-card .card-footer .card-fauvorite:hover, .search-cards .app-card .card-footer .card-info:hover {
           border: 1.5px solid black;
           background: black;
           color: #fff;
           border-radius: 0px; }
+
+/*=====  End of CARD BLOCK ======*/
+/*=============================================
+=           Modal block             =
+=============================================*/
+.vmodal * {
+  border: 0px; }
+
+.vmodal .modal-header .close {
+  font-size: 28px;
+  color: #ccc; }
+
+.vmodal .modal-content {
+  background: inherit;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  border: 5px solid #ccc; }
+  .vmodal .modal-content .wind, .vmodal .modal-content .deg, .vmodal .modal-content .modal-sun, .vmodal .modal-content .modal-set {
+    display: flex;
+    align-items: center;
+    padding: 5px; }
+    .vmodal .modal-content .wind p, .vmodal .modal-content .deg p, .vmodal .modal-content .modal-sun p, .vmodal .modal-content .modal-set p {
+      font-size: 16px;
+      align-items: center;
+      margin-bottom: 0;
+      font-weight: 700; }
+  .vmodal .modal-content .modal-btn {
+    padding: 4px;
+    width: 70px;
+    margin: 5px;
+    background: inherit;
+    border: 1.5px solid #ccc;
+    border-radius: 20px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border .2s ease-in;
+    transition: border-radius .2s ease-in; }
+    .vmodal .modal-content .modal-btn:hover {
+      border: 1.5px solid black;
+      background: black;
+      color: #fff;
+      border-radius: 0px; }
+
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+
+.background-container {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+  .background-container img {
+    height: 70vh;
+    width: 70vh;
+    position: absolute;
+    z-index: 3;
+    right: 20px; }
+
+.stars {
+  background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0; }
+
+.twinkling {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  -moz-animation: move-background 70s linear infinite;
+  -ms-animation: move-background 70s linear infinite;
+  -o-animation: move-background 70s linear infinite;
+  -webkit-animation: move-background 70s linear infinite;
+  animation: move-background 70s linear infinite; }
+
+.clouds-bg {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  -moz-animation: move-background 150s linear infinite;
+  -ms-animation: move-background 150s linear infinite;
+  -o-animation: move-background 150s linear infinite;
+  -webkit-animation: move-background 150s linear infinite;
+  animation: move-background 150s linear infinite; }
+
+/*=====  End of Modal block  ======*/
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  width: 100%; }
+  footer p {
+    float: right;
+    margin-right: 20px; }
+  footer a {
+    color: #ccc; }
+    footer a:hover {
+      text-decoration: none;
+      color: #fff; }
 
 /*# sourceMappingURL=main.css.map */
