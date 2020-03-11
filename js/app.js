@@ -17,6 +17,8 @@ searchItem.addEventListener("keydown", async e => {
   }
 });
 
+
+//validation
 function allLetter(bool) {
   var letters = /^[A-Za-zА-Яа-я]+$/;
   if (searchItem.value.match(letters)) {
@@ -34,12 +36,12 @@ function allLetter(bool) {
   }
 }
 
-//geolocation
+// request geolocation
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 }
 
-//geo add card if accept
+//add geo card if successCallBack
 async function geoSuccess(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -52,7 +54,7 @@ async function geoSuccess(position) {
   cardCreator(city);
 }
 
-//geo add error card if block
+//add geo error card if errorCallBack
 function geoError(city) {
   const cardErr = document.createElement("div");
   cardErr.classList.add("card-error");
@@ -68,8 +70,8 @@ function geoError(city) {
     </div>
 
     <div class="card-footer">
-      <button class='card-remove'>Delete</button>
-      <button class='card-fauvorite'>Add</button>
+      <button class='card-info'>Delete</button>
+      <button class='card-info'>Add</button>
     </div>
    `
   );
@@ -86,7 +88,7 @@ async function requestWeather(city) {
     for (city of cities) {
       let weather = city;
       cardCreator(weather);
-      // console.log(modTitle)
+      console.log(weather)
     }
     searchItem.value = "";
   } catch (e) {
@@ -101,20 +103,39 @@ async function requestWeather(city) {
   }
 }
 
-//Card creator
-function cardCreator(city) {
-  const weatherIcon =
-    "http://openweathermap.org/img/wn/" + city.weather[0].icon + ".png";
-  const date = new Date(city.dt * 1000); // Epoch
+// time function for create date
+function timeChanger(time){
+  const date = new Date(time * 1000); // Epoch
   const hours = date.getHours();
   const minutes = "0" + date.getMinutes();
   const seconds = "0" + date.getSeconds();
-  const formattedTime =
-    hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+  const formattedTime = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+  return formattedTime
+}
+
+
+//Card creator
+function cardCreator(city) {
+  const weatherIcon = "http://openweathermap.org/img/wn/" + city.weather[0].icon + ".png";
   const KELVIN = 273;
   const temp = Math.floor(city.main.temp - KELVIN);
+  const dTime = timeChanger(city.dt)
+  const dSunset = timeChanger(city.sys.sunset)
+  const dSunRise = timeChanger(city.sys.sunrise)
   const appCard = document.createElement("div");
+  const modalTitle = document.querySelector('.modal-title');
+  const modalWind = document.querySelector('.modal-wind');
+  const modalDeg = document.querySelector('.modal-deg');
+  const modalSunSet = document.querySelector('.modal-sunset');
+  const modalSunRise = document.querySelector('.modal-sunrise');
+  
 
+  modalTitle.innerHTML = city.name
+  modalWind.innerHTML = city.wind.speed
+  modalDeg.innerHTML = city.wind.deg
+  modalSunSet.innerHTML = dSunset.toUpperCase()
+  modalSunRise.innerHTML = dSunRise
+  
   appCard.classList.add("app-card");
   appCard.insertAdjacentHTML(
     "afterbegin",
@@ -128,7 +149,7 @@ function cardCreator(city) {
       <span><i class="fas fa-city"></i> ${city.name}</span>
       <span>Погода: ${city.weather[0].description} </span>
       <span>Температура: ${temp + "&deg;C"} </span>
-      <span>Время ${formattedTime}</span>
+      <span>Время: ${dTime} </span>
      </div>
 
      <div class="card-footer">
@@ -137,7 +158,6 @@ function cardCreator(city) {
      </button>
       <button class='card-fauvorite'>Add</button>
      </div>
-     
   `
   );
 
