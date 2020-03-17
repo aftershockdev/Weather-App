@@ -1,9 +1,14 @@
+const store = {
+  cities: []
+};
+
 const APP_KEY = "fd70466ba1e5df5c105fdb9879e197c7";
 const searchBtn = document.querySelector(".search-button");
 const searchItem = document.querySelector(".search-subitem");
 const searchName = document.querySelector(".search-name");
 const cardMap = document.querySelector(".search-cards");
 const cardMapSecond = document.querySelector(".search-cards-second");
+const addToFavoriteButtons = document.querySelectorAll('.card-favorite')
 
 searchBtn.addEventListener("click", async e => {
   if (searchItem.value != "") {
@@ -80,27 +85,21 @@ function geoError(city) {
 }
 
 //Weather  Input Request
-async function requestWeather(city) {
+async function requestWeather() {
   try {
     const requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchItem.value}&appid=${APP_KEY}&lang=ru`;
     const response = await fetch(requestUrl);
-    let data = await response.json();
-    const cities = await [data];
-    for (city of cities) {
-      let weather = city
-      cardCreator(weather);
-      console.log(weather)
-    }
-    searchItem.value = "";
+    const data = await response.json();
+    cardCreator(data)
   } catch (e) {
-    await city.message;
-    searchItem.style.border = "1px solid red";
-    searchName.innerHTML = city.message;
-    setTimeout(() => {
-      searchItem.style.border = "1.55px solid #C5CFD5";
-      searchName.innerHTML = "City :";
-      searchItem.value = "";
-    }, 1000);
+    console.log(e.response);
+    // searchItem.style.border = "1px solid red";
+    // searchName.innerHTML = city.message;
+    // setTimeout(() => {
+    //   searchItem.style.border = "1.55px solid #C5CFD5";
+    //   searchName.innerHTML = "City :";
+    //   searchItem.value = "";
+    // }, 1000);
   }
 }
 
@@ -129,22 +128,18 @@ function cardCreator(city) {
   const modalDeg = document.querySelector('.modal-deg');
   const modalSunSet = document.querySelector('.modal-sunset');
   const modalSunRise = document.querySelector('.modal-sunrise');
-  
 
-    modalTitle.innerHTML = city.name
-    modalWind.innerHTML = city.wind.speed
-    modalDeg.innerHTML = city.wind.deg
-    modalSunSet.innerHTML = dSunset
-    modalSunRise.innerHTML = dSunRise
-  
-
+  modalTitle.innerHTML = city.name
+  modalWind.innerHTML = city.wind.speed
+  modalDeg.innerHTML = city.wind.deg
+  modalSunSet.innerHTML = dSunset
+  modalSunRise.innerHTML = dSunRise
   
   appCard.classList.add("app-card");
-  appCard.classList.add(city.id)
+  appCard.dataset.city = city.id
   appCard.insertAdjacentHTML(
     'afterbegin',
     `
-
      <div class="card-header">
        <img src='${weatherIcon}'>   
      </div>
@@ -157,32 +152,29 @@ function cardCreator(city) {
      </div>
 
      <div class="card-footer">
-     <button class="card-info"  data-toggle="modal" data-target="#exampleModal">
+     <button class="card-info" data-toggle="modal" data-target="#exampleModal">
       More
      </button>
-      <button class='card-fauvorite'>Add</button>
+      <button class='card-favorite'>Add</button>
      </div>
-  `
+    `
   );
- 
 
+  const modalAddToFavorite = appCard.querySelector('.card-favorite')
+  modalAddToFavorite.addEventListener('click', e => {
+    store.cities.push(data)
+    commitStoreToLocalStorage()
+  })
 
-if(window.matchMedia("(max-width: 700px)").matches){
- appCard.style.width = 33 + '%';
-  
-}
+  if(window.matchMedia("(max-width: 700px)").matches){
+    appCard.style.width = 33 + '%';
+  }
 
   if(cardMap.childElementCount < 4) {
     cardMap.appendChild(appCard);
-  }else {
+  } else {
     cardMapSecond.style.height = 'auto'
     cardMapSecond.appendChild(appCard)
   }
-
-  //  if(appCard.style.width = '33%'){
-
-  //  }
-  return appCard;
 }
-
 

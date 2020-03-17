@@ -5,6 +5,8 @@
   font-family: "Raleway", sans-serif;
   color: #ccc; }
 
+button, input, a, textarea, select { outline: none !important; }
+
 a, li, ul, ol {
   text-decoration: none;
   list-style-type: none; }
