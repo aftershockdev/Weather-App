@@ -1,11 +1,13 @@
 $main-color: #C5CFD5;
 $font: 'Raleway', sans-serif;
-$text-color: #16173C;
+$text-color: #ccc;
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: $font;
+  color: $text-color
 }
 a, li, ul, ol{
   text-decoration: none;
@@ -16,103 +18,458 @@ a, li, ul, ol{
 /*=============================================
 =     Navigation block            =
 =============================================*/
-nav {
-  display: flex;
-  height: 5rem;
-  background: $main-color;
-   .nav-wrapper {
-        width: 80%;
-        display: flex;
-        margin: 0 auto;
-        align-items: center;
-        .nav-bar{
-          display: flex;
-          width: 100%;
-          justify-content: space-between;
-        }
-     i{
-       font-size: 28px;
-       color: $text-color;
-     }
-     .nav-item {
-       font-family: $font;
-       text-transform: uppercase;
-       display: flex;
-       flex-direction: column;
-       transition: font-size .2s ease-in-out;
-       &:hover{
-         font-size: 18px;
-       }
-       a{
-        color: $text-color;
-        font-weight: 400;
-        &:hover{
-          color: #121345;
-          font-weight: 700;
 
-        }
-       }
-  
-     }
+nav {
+
+  .nav-wrapper {
+    background: inherit;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  .search-sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-block {
+    display: flex;
+    justify-content: space-between;
+    a{
+      color: $text-color ;
+      transition: border .15s ease-out;
+      color: #ccc;
+      font-size: 24px;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  .search-subitem {
+    width: 240px;
+    height: 35px;
+    border-radius: 15px;
+    background: inherit;
+    color: #fff;
+    border: 2px solid $main-color;
+    padding-left: 15px;
+  }
+  .search-button {
+    padding: 4px;          
+    border: 1.5px solid #fff;
+    background: inherit;
+    margin-left: 5px;
+    border-radius: 20px;
+    font-family: $font;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border .2s ease-in;
+    transition: border-radius .2s ease-in;
+    &:hover{
+      border: 1.5px solid black;
+      background: black;
+      color: #fff;
+      border-radius: 0px;
+    }
    }
 }
 
-
-/*=====  End Of Navigation block  ======*/
-
-
-
-/*=============================================
-=     Main Block            =
-=============================================*/
-
-.container{
-  width: 1170px;
-  margin: 0 auto;
+.search-items {
+  display: flex;
+  align-items: center;
 }
+  .search-name {
+    font-family: $font;
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 5px;
+  }
 .search-layout{ 
-  height: 100vh;
-  background: #e3e2e2;
 
-  .search-items {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  background: inherit;
+  display: flex;
+  flex-wrap: wrap;
+   .search-wrap {
+   display: flex;
+   justify-content: space-between;
+ }
     p{
       font-family: $font;
       font-weight: 700px;
       font-size: 18px;
       margin-bottom: 10px;
     }
-    .search-subitem {
-      width: 240px;
-      height: 30px;
-      border-radius: 15px;
-      color: $text-color;
-      border: 1.55px solid $main-color;
-      padding-left: 15px;
-    }
-    .search-button {
-      padding: 6px;          
-      background:  #fff;
-      border: 1.5px solid $main-color;
-      border-radius: 15px;
-      font-family: $font;
-      font-weight: 600;
-      cursor: pointer;
-      transition: border .2s ease-in;
-      transition: border-radius .2s ease-in;
-      &:hover{
-        border: 1.5px solid black;
-        border-radius: 0px;
+   
+  }
+ 
+/*=====  End Of Navigation block  ======*/
 
 
+
+
+
+/*=============================================
+=            APP CARD BLOCK            =
+=============================================*/
+
+.search-cards , .search-cards-second{
+    max-width: 100vw;
+    height: auto;
+    margin-top: 20px;
+    font-family: $font;
+    display: flex;
+    .card-error{ 
+      padding: 15px;
+      margin: 10px;
+      width: 250px;
+      height: 365px;
+      border-radius: 15px;
+      border: 5px solid rgba(0,0,0, .5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      .card-header {
+        background: inherit;
+        border:  0px;
       }
+      .card-footer {
+        padding: 10px;
+        border: 0px ;
+        display: flex;
+        background: inherit;
+        .card-fauvorite, .card-info{
+          padding: 4px;  
+          width: 70px;
+          margin: 5px;        
+          background: inherit;
+          border: 1.5px solid rgba(0,0,0, .5);
+          border-radius: 20px;
+          font-family: $font;
+          font-weight: 600;
+          cursor: pointer;
+          transition: border .2s ease-in;
+          transition: border-radius .2s ease-in;
+          &:hover{
+            border: 1.5px solid black;
+            background: black;
+            color: #fff;
+            border-radius: 0px;
+          }
+        }
+      }
+    }
+   .app-card { 
+    padding: 15px;
+    margin: 10px;
+    width: 25%;
+    height: 365px;
+    border-radius: 15px;
+    border: 5px solid #fff;
+    display: flex;
+    order: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    .card-header{ 
+      display: flex;
+      opacity: 100%;
+      flex-direction: column;
+      background: inherit;
+      border: 0;
+       img{
+         width: 100px;
+         height: 100px;
+         border: 0px;
+         background-color: inherit;
+       }
+    }
+    .card-main {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      span{
+        color: #fff;
+      }
+      i{
+        font-size: 18px;
+        
+      }
+    }
+    .card-footer {
+      padding: 10px;
+      border: 0px ;
+      display: flex;
+      background: inherit;
+      .card-fauvorite, .card-info{
+        padding: 4px;  
+        width: 70px;
+        margin: 5px;        
+        background: inherit;
+        border: 1.5px solid #fff;
+        color: #fff;
+        border-radius: 20px;
+        font-family: $font;
+        font-weight: 600;
+        cursor: pointer;
+        transition: border .2s ease-in;
+        transition: border-radius .2s ease-in;
+        &:hover{
+          border: 1.5px solid black;
+          background: black;
+          color: #fff;
+          border-radius: 0px;
+        }
+      }
+    }
+  }
+}
+
+// /*=====  End of CARD BLOCK ======*/
+
+
+
+
+
+
+// /*=============================================
+// =           Modal block             =
+// =============================================*/
+
+.vmodal {
+  *{
+    border: 0px;
+  }
+  .modal-header .close {
+    font-size: 28px;
+    color: $text-color;
+  }
+  .modal-content {
+    background: inherit;
+    background: rgba(0, 0, 0, .8);
+    border-radius: 15px;
+    border: 5px solid $text-color;
+    .wind , .deg , .modal-sun , .modal-set {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      p{
+       font-size: 16px;
+       align-items: center;
+       margin-bottom: 0;
+       font-weight: 700;
      }
+   }
+   .modal-btn {
+    padding: 4px;  
+    width: 70px;
+    margin: 5px;        
+    background: inherit;
+    border: 1.5px solid #ccc;
+    border-radius: 20px;
+    font-family: $font;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border .2s ease-in;
+    transition: border-radius .2s ease-in;
+    &:hover{
+      border: 1.5px solid black;
+      background: black;
+      color: #fff;
+      border-radius: 0px;
+    }
+   }
+  }
+}
+
+/*=====  End of Modal block  ======*/
+
+
+
+
+
+/*=============================================
+=            FOOTER BLOCK            =
+=============================================*/
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  p{
+    float: right;
+    margin-right: 20px;
+   
+  }
+  a{
+    color: $text-color;
+    &:hover{
+      text-decoration: none;
+      color: #fff;
+      
+    }
+  }
+}
+
+/*=====  End of FOOTER BLOCK  ======*/
+
+
+
+
+
+/*=============================================
+=            BACKGROUND BLOCK            =
+=============================================*/
+
+.background-container{
+  position: fixed;
+  z-index: -1;
+	top: 0;
+	left:0;
+	bottom: 0;
+  right: 0;
+  img{
+    height: 70vh;
+    width:70vh;
+    position: absolute;
+    z-index: 3;
+    right: 20px;
+  }
+}
+
+.stars {
+ background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+ position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: block;
+  	z-index: 0;
+}
+
+.twinkling{
+	width:10000px;
+	height: 100%;
+	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+	background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    
+    -moz-animation:move-background 70s linear infinite;
+  -ms-animation:move-background 70s linear infinite;
+  -o-animation:move-background 70s linear infinite;
+  -webkit-animation:move-background 70s linear infinite;
+  animation:move-background 70s linear infinite;
+  
+  
+}
+
+.clouds-bg{
+	width:10000px;
+	height: 100%;
+	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+	background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+
+   -moz-animation:move-background 150s linear infinite;
+  -ms-animation:move-background 150s linear infinite;
+  -o-animation:move-background 150s linear infinite;
+  -webkit-animation:move-background 150s linear infinite;
+  animation:move-background 150s linear infinite;
+ 
+}
+
+/*=====  End of BACKGROUND BLOCK  ======*/
+
+
+
+
+
+/*=============================================
+=            Keyframes block            =
+=============================================*/
+
+@keyframes move-background {
+  from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+@-webkit-keyframes move-background {
+  from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+
+@-moz-keyframes move-background {    
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+
+    @-webkit-keyframes move-background {
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+
+/*=====  End of Keyframes block  ======*/
+
+
+
+
+/*=============================================
+=            media block      =
+=============================================*/
+
+
+@media (max-width: 992px){
+  .search-cards ,.search-cards-second{
+    .app-card {
+      width: 200px;
+      margin: 10px;
+    }
+  }
+  .container {
+    max-width: 900px;
   }
 }
 
 
-/*===== End of  Main Block  ======*/
+@media (max-width: 768px){
+  .search-cards ,.search-cards-second{
+    .app-card {
+      width: 220px;
+      margin: 10px;
+    }
+  }
+  .container {
+    max-width: 768px;
+  }
+}
+
+
+/*=====  End of media  block ======*/
 

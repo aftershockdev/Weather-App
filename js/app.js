@@ -3,6 +3,7 @@ const searchBtn = document.querySelector(".search-button");
 const searchItem = document.querySelector(".search-subitem");
 const searchName = document.querySelector(".search-name");
 const cardMap = document.querySelector(".search-cards");
+const cardMapSecond = document.querySelector(".search-cards-second");
 
 searchBtn.addEventListener("click", async e => {
   if (searchItem.value != "") {
@@ -86,7 +87,7 @@ async function requestWeather(city) {
     let data = await response.json();
     const cities = await [data];
     for (city of cities) {
-      let weather = city;
+      let weather = city
       cardCreator(weather);
       console.log(weather)
     }
@@ -130,15 +131,18 @@ function cardCreator(city) {
   const modalSunRise = document.querySelector('.modal-sunrise');
   
 
-  modalTitle.innerHTML = city.name
-  modalWind.innerHTML = city.wind.speed
-  modalDeg.innerHTML = city.wind.deg
-  modalSunSet.innerHTML = dSunset.toUpperCase()
-  modalSunRise.innerHTML = dSunRise
+    modalTitle.innerHTML = city.name
+    modalWind.innerHTML = city.wind.speed
+    modalDeg.innerHTML = city.wind.deg
+    modalSunSet.innerHTML = dSunset
+    modalSunRise.innerHTML = dSunRise
+  
+
   
   appCard.classList.add("app-card");
+  appCard.classList.add(city.id)
   appCard.insertAdjacentHTML(
-    "afterbegin",
+    'afterbegin',
     `
 
      <div class="card-header">
@@ -160,42 +164,25 @@ function cardCreator(city) {
      </div>
   `
   );
+ 
 
-  cardMap.appendChild(appCard);
+
+if(window.matchMedia("(max-width: 700px)").matches){
+ appCard.style.width = 33 + '%';
+  
+}
+
+  if(cardMap.childElementCount < 4) {
+    cardMap.appendChild(appCard);
+  }else {
+    cardMapSecond.style.height = 'auto'
+    cardMapSecond.appendChild(appCard)
+  }
+
+  //  if(appCard.style.width = '33%'){
+
+  //  }
   return appCard;
 }
 
-// function hello(){
-//   const btnInf = document.querySelectorAll('.card-info')
-//   btnInf.addEventListener('click',()=>{
-//     console.log('hui')
-//   })
-// }
 
-// function modalCreator(city){
-//   document.body.classList.add('modal-open')
-//   const $modal = document.createElement('div')
-//   $modal.classList.add('vmodal')
-//   $modal.insertAdjacentHTML('afterbegin', `
-//   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-//     <div class="modal-dialog" role="document">
-//       <div class="modal-content">
-//         <div class="modal-header">
-//           <h5 class="modal-title" id="exampleModalLabel"></h5>
-//           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-//             <span aria-hidden="true">&times;</span>
-//           </button>
-//         </div>
-//         <div class="modal-body">
-//         </div>
-//         <div class="modal-footer">
-//           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-//           <button type="button" class="btn btn-primary">Save changes</button>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-//   `)
-//    document.body.appendChild($modal)
-//    return $modal
-//   }

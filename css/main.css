@@ -73,7 +73,7 @@ nav .search-button {
 .search-layout {
   background: inherit;
   display: flex;
-  justify-content: center; }
+  flex-wrap: wrap; }
   .search-layout .search-wrap {
     display: flex;
     justify-content: space-between; }
@@ -85,23 +85,15 @@ nav .search-button {
 
 /*=====  End Of Navigation block  ======*/
 /*=============================================
-=     Main Block            =
-=============================================*/
-.container {
-  width: 1170px;
-  margin: 0 auto; }
-
-/*===== End of  Main Block  ======*/
-/*=============================================
 =            APP CARD BLOCK            =
 =============================================*/
-.search-cards {
-  margin: 20px;
+.search-cards, .search-cards-second {
+  max-width: 100vw;
+  height: auto;
+  margin-top: 20px;
   font-family: "Raleway", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  .search-cards .card-error {
+  display: flex; }
+  .search-cards .card-error, .search-cards-second .card-error {
     padding: 15px;
     margin: 10px;
     width: 250px;
@@ -113,15 +105,15 @@ nav .search-button {
     align-items: center;
     justify-content: space-between;
     text-align: center; }
-    .search-cards .card-error .card-header {
+    .search-cards .card-error .card-header, .search-cards-second .card-error .card-header {
       background: inherit;
       border: 0px; }
-    .search-cards .card-error .card-footer {
+    .search-cards .card-error .card-footer, .search-cards-second .card-error .card-footer {
       padding: 10px;
       border: 0px;
       display: flex;
       background: inherit; }
-      .search-cards .card-error .card-footer .card-fauvorite, .search-cards .card-error .card-footer .card-info {
+      .search-cards .card-error .card-footer .card-fauvorite, .search-cards .card-error .card-footer .card-info, .search-cards-second .card-error .card-footer .card-fauvorite, .search-cards-second .card-error .card-footer .card-info {
         padding: 4px;
         width: 70px;
         margin: 5px;
@@ -133,48 +125,49 @@ nav .search-button {
         cursor: pointer;
         transition: border .2s ease-in;
         transition: border-radius .2s ease-in; }
-        .search-cards .card-error .card-footer .card-fauvorite:hover, .search-cards .card-error .card-footer .card-info:hover {
+        .search-cards .card-error .card-footer .card-fauvorite:hover, .search-cards .card-error .card-footer .card-info:hover, .search-cards-second .card-error .card-footer .card-fauvorite:hover, .search-cards-second .card-error .card-footer .card-info:hover {
           border: 1.5px solid black;
           background: black;
           color: #fff;
           border-radius: 0px; }
-  .search-cards .app-card {
+  .search-cards .app-card, .search-cards-second .app-card {
     padding: 15px;
     margin: 10px;
-    width: 250px;
+    width: 25%;
     height: 365px;
     border-radius: 15px;
     border: 5px solid #fff;
     display: flex;
+    order: 0;
     flex-direction: column;
     align-items: center;
     justify-content: space-between; }
-    .search-cards .app-card .card-header {
+    .search-cards .app-card .card-header, .search-cards-second .app-card .card-header {
       display: flex;
       opacity: 100%;
       flex-direction: column;
       background: inherit;
       border: 0; }
-      .search-cards .app-card .card-header img {
+      .search-cards .app-card .card-header img, .search-cards-second .app-card .card-header img {
         width: 100px;
         height: 100px;
         border: 0px;
         background-color: inherit; }
-    .search-cards .app-card .card-main {
+    .search-cards .app-card .card-main, .search-cards-second .app-card .card-main {
       margin-top: 20px;
       display: flex;
       flex-direction: column;
       text-align: center; }
-      .search-cards .app-card .card-main span {
+      .search-cards .app-card .card-main span, .search-cards-second .app-card .card-main span {
         color: #fff; }
-      .search-cards .app-card .card-main i {
+      .search-cards .app-card .card-main i, .search-cards-second .app-card .card-main i {
         font-size: 18px; }
-    .search-cards .app-card .card-footer {
+    .search-cards .app-card .card-footer, .search-cards-second .app-card .card-footer {
       padding: 10px;
       border: 0px;
       display: flex;
       background: inherit; }
-      .search-cards .app-card .card-footer .card-fauvorite, .search-cards .app-card .card-footer .card-info {
+      .search-cards .app-card .card-footer .card-fauvorite, .search-cards .app-card .card-footer .card-info, .search-cards-second .app-card .card-footer .card-fauvorite, .search-cards-second .app-card .card-footer .card-info {
         padding: 4px;
         width: 70px;
         margin: 5px;
@@ -187,16 +180,12 @@ nav .search-button {
         cursor: pointer;
         transition: border .2s ease-in;
         transition: border-radius .2s ease-in; }
-        .search-cards .app-card .card-footer .card-fauvorite:hover, .search-cards .app-card .card-footer .card-info:hover {
+        .search-cards .app-card .card-footer .card-fauvorite:hover, .search-cards .app-card .card-footer .card-info:hover, .search-cards-second .app-card .card-footer .card-fauvorite:hover, .search-cards-second .app-card .card-footer .card-info:hover {
           border: 1.5px solid black;
           background: black;
           color: #fff;
           border-radius: 0px; }
 
-/*=====  End of CARD BLOCK ======*/
-/*=============================================
-=           Modal block             =
-=============================================*/
 .vmodal * {
   border: 0px; }
 
@@ -236,30 +225,28 @@ nav .search-button {
       color: #fff;
       border-radius: 0px; }
 
-@keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px); }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+/*=====  End of Modal block  ======*/
+/*=============================================
+=            FOOTER BLOCK            =
+=============================================*/
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+  width: 100%; }
+  footer p {
+    float: right;
+    margin-right: 20px; }
+  footer a {
+    color: #ccc; }
+    footer a:hover {
+      text-decoration: none;
+      color: #fff; }
 
-@-webkit-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px); }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px); } }
-
-@-moz-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px); }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px); } }
-
-@-webkit-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px); }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px); } }
-
+/*=====  End of FOOTER BLOCK  ======*/
+/*=============================================
+=            BACKGROUND BLOCK            =
+=============================================*/
 .background-container {
   position: fixed;
   z-index: -1;
@@ -316,19 +303,52 @@ nav .search-button {
   -webkit-animation: move-background 150s linear infinite;
   animation: move-background 150s linear infinite; }
 
-/*=====  End of Modal block  ======*/
-footer {
-  position: absolute;
-  bottom: 0;
-  height: 30px;
-  width: 100%; }
-  footer p {
-    float: right;
-    margin-right: 20px; }
-  footer a {
-    color: #ccc; }
-    footer a:hover {
-      text-decoration: none;
-      color: #fff; }
+/*=====  End of BACKGROUND BLOCK  ======*/
+/*=============================================
+=            Keyframes block            =
+=============================================*/
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px); } }
+
+/*=====  End of Keyframes block  ======*/
+/*=============================================
+=            media block      =
+=============================================*/
+@media (max-width: 992px) {
+  .search-cards .app-card, .search-cards-second .app-card {
+    width: 200px;
+    margin: 10px; }
+  .container {
+    max-width: 900px; } }
+
+@media (max-width: 768px) {
+  .search-cards .app-card, .search-cards-second .app-card {
+    width: 220px;
+    margin: 10px; }
+  .container {
+    max-width: 768px; } }
+
+/*=====  End of media  block ======*/
 
 /*# sourceMappingURL=main.css.map */
